@@ -119,12 +119,12 @@
 
 <!-- Full height container matching Figma layout -->
 <div class="container-fluid vh-100 p-0">
-	<div class="row h-100 g-0">
+	<div class="row h-100 g-0 flex-column flex-md-row">
 		<!-- Left Sidebar - Activity Details (matches Figma left panel) -->
-		<div class="col-md-4 col-lg-3 bg-white border-end">
+		<div class="col-12 col-md-4 col-lg-3 bg-white border-end">
 			<div class="h-100 d-flex flex-column">
 				<!-- Header Section -->
-				<div class="p-4 border-bottom">
+				<div class="p-3 p-md-4 border-bottom">
 					<div class="d-flex justify-content-between align-items-center mb-3">
 						<h4 class="mb-0 text-primary">{activityType}</h4>
 						<button class="btn btn-outline-secondary btn-sm" on:click={() => history.back()}>
@@ -134,10 +134,10 @@
 					<p class="text-muted mb-0">{getActivityDescription(activityType)}</p>
 				</div>
 
-				<!-- Data Collection Section -->
-				<div class="p-4 flex-grow-1">
+				<!-- Data Collection Section - Collapsible on mobile -->
+				<div class="p-3 p-md-4 flex-grow-1">
 					<h6 class="mb-3">Data Being Collected</h6>
-					<div class="list-group list-group-flush">
+					<div class="list-group list-group-flush d-none d-md-block">
 						{#if activityType === 'Probe'}
 							<div class="list-group-item px-0 py-2 border-0">
 								<small class="text-muted">• Accuracy percentage</small>
@@ -204,10 +204,14 @@
 							</div>
 						{/if}
 					</div>
+					<!-- Compact mobile version -->
+					<div class="d-md-none">
+						<small class="text-muted">Accuracy, WCPM, error patterns, and completion metrics</small>
+					</div>
 				</div>
 
 				<!-- Assign Button at Bottom -->
-				<div class="p-4 border-top">
+				<div class="p-3 p-md-4 border-top">
 					<button class="btn btn-primary w-100" on:click={openAssignmentModal}>
 						Assign Activity
 					</button>
@@ -216,10 +220,10 @@
 		</div>
 
 		<!-- Right Side - Student View Preview -->
-		<div class="col-md-8 col-lg-9 bg-light">
-			<div class="h-100 d-flex align-items-center justify-content-center p-5">
-				<div class="text-center">
-					<div class="bg-white rounded-3 shadow-sm p-5" style="min-width: 600px;">
+		<div class="col-12 col-md-8 col-lg-9 bg-light">
+			<div class="h-100 d-flex align-items-center justify-content-center p-2 p-md-4 p-lg-5">
+				<div class="text-center w-100">
+					<div class="bg-white rounded-3 shadow-sm p-3 p-md-4 p-lg-5 w-100" style="max-width: 800px;">
 						<h5 class="text-primary mb-1">Student View Preview</h5>
 						<p class="text-muted mb-4">What students will see during the {activityType.toLowerCase()}</p>
 
@@ -227,15 +231,15 @@
 						<div class="row g-3">
 							{#each activityPreviewData.previewItems as item, index}
 								<div class="col-12">
-									<div class="card border-2 p-4">
+									<div class="card border-2 p-2 p-md-3 p-lg-4">
 										<div class="row align-items-center">
-											<div class="col-md-8 text-start">
-												<div class="d-flex align-items-center gap-3">
-													<span class="badge bg-primary rounded-circle" style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">
+											<div class="col-12 col-md-8 text-center text-md-start mb-2 mb-md-0">
+												<div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 gap-md-3">
+													<span class="badge bg-primary rounded-circle" style="width: 25px; height: 25px; min-width: 25px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">
 														{index + 1}
 													</span>
-													<div>
-														<h6 class="mb-1">
+													<div class="text-center text-md-start">
+														<h6 class="mb-1 fs-6">
 															{#if item.type === 'letter-sound'}
 																{item.stimulus}
 															{:else if item.type === 'word-read'}
@@ -248,10 +252,10 @@
 													</div>
 												</div>
 											</div>
-											<div class="col-md-4 text-end">
+											<div class="col-12 col-md-4 text-center text-md-end">
 												{#if item.mic}
-													<div class="d-flex align-items-center justify-content-end gap-2">
-														<svg width="24" height="24" fill="currentColor" class="text-danger" viewBox="0 0 16 16">
+													<div class="d-flex align-items-center justify-content-center justify-content-md-end gap-2">
+														<svg width="20" height="20" fill="currentColor" class="text-danger" viewBox="0 0 16 16">
 															<path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V14h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-1.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
 															<path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
 														</svg>
@@ -267,13 +271,13 @@
 
 						<!-- Assessment Info -->
 						<div class="mt-4 p-3 bg-light rounded">
-							<div class="row text-start">
-								<div class="col-md-6">
+							<div class="row text-center text-md-start">
+								<div class="col-12 col-md-6 mb-2 mb-md-0">
 									<small class="text-muted">
 										<strong>Pattern Focus:</strong> {activityPreviewData.pattern}
 									</small>
 								</div>
-								<div class="col-md-6">
+								<div class="col-12 col-md-6">
 									<small class="text-muted">
 										<strong>Activity Type:</strong> {activityPreviewData.activityType}
 									</small>
@@ -399,3 +403,29 @@
 		</div>
 	</div>
 {/if}
+
+<style>
+	@media (max-width: 767.98px) {
+		.vh-100 {
+			min-height: 100vh;
+			height: auto;
+		}
+
+		/* Make sidebar compact on mobile */
+		.col-12.col-md-4.col-lg-3 .h-100 {
+			height: auto;
+			min-height: auto;
+		}
+
+		/* Ensure preview section is visible */
+		.col-12.col-md-8.col-lg-9 .h-100 {
+			height: auto;
+			min-height: 60vh;
+		}
+
+		/* Adjust flex layout for mobile */
+		.flex-column.flex-md-row {
+			height: auto;
+		}
+	}
+</style>
