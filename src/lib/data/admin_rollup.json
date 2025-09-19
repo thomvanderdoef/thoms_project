@@ -1,0 +1,32 @@
+{
+  "assignmentId": "asg_2025_09_19_probe_v_sound",
+  "cohort": "1st Grade \u2014 Ms. Lee",
+  "rollup": {
+    "core": 6,
+    "strategic": 2,
+    "intensive": 0
+  },
+  "trendline": [
+    {
+      "label": "Fall Baseline",
+      "avgAccuracyPct": 65
+    },
+    {
+      "label": "Week 2",
+      "avgAccuracyPct": 72
+    },
+    {
+      "label": "Week 4",
+      "avgAccuracyPct": 76
+    },
+    {
+      "label": "Now",
+      "avgAccuracyPct": 79
+    }
+  ],
+  "badges": [
+    "SoR-Aligned",
+    "Comparable to DIBELS",
+    "Tier 2 Ready"
+  ]
+}

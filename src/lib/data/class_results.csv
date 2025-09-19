@@ -1,0 +1,9 @@
+Student,AccuracyPct,ItemsCorrect,ItemsTotal,WCPM,Risk,LatencyMsAvg,Miscues
+"Anderson, Emma",83,10,12,53,Core,1350,short a→long a (1x); final /t/→/d/ (1x)
+"Baker, Liam",83,10,12,55,Core,1280,self-corrected /b/→/v/
+"Clark, Sophia",83,10,12,51,Core,1400,
+"Davis, Noah",67,8,12,47,Strategic,1720,/v/→/b/ (3x); omitted final sound (1x)
+"Evans, Olivia",83,10,12,51,Core,1300,
+"Fisher, Ethan",83,10,12,48,Core,1600,slow rate
+"Garcia, Ava",67,8,12,54,Strategic,1680,short a→long a (2x)
+"Harris, Mason",83,10,12,50,Core,1580,slow rate

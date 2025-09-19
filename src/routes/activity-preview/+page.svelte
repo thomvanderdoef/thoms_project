@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import activityPreviewData from '$lib/data/activity_preview.json';
 
 	let activityType = '';
 	let lessonFocus = '';
@@ -214,17 +215,70 @@
 			</div>
 		</div>
 
-		<!-- Right Side - Activity Preview (simplified) -->
+		<!-- Right Side - Student View Preview -->
 		<div class="col-md-8 col-lg-9 bg-light">
 			<div class="h-100 d-flex align-items-center justify-content-center p-5">
 				<div class="text-center">
-					<div class="bg-white rounded-3 shadow-sm p-5" style="min-height: 400px; min-width: 500px;">
-						<h5 class="text-muted mb-4">Activity Preview</h5>
-						<div class="border rounded p-4 bg-light d-flex align-items-center justify-content-center" style="height: 300px;">
-							<p class="text-muted mb-0">
-								Interactive {activityType.toLowerCase()} interface
-								<br><small>Student will interact with activity content here</small>
-							</p>
+					<div class="bg-white rounded-3 shadow-sm p-5" style="min-width: 600px;">
+						<h5 class="text-primary mb-1">Student View Preview</h5>
+						<p class="text-muted mb-4">What students will see during the {activityType.toLowerCase()}</p>
+
+						<!-- Sample Assessment Items -->
+						<div class="row g-3">
+							{#each activityPreviewData.previewItems as item, index}
+								<div class="col-12">
+									<div class="card border-2 p-4">
+										<div class="row align-items-center">
+											<div class="col-md-8 text-start">
+												<div class="d-flex align-items-center gap-3">
+													<span class="badge bg-primary rounded-circle" style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">
+														{index + 1}
+													</span>
+													<div>
+														<h6 class="mb-1">
+															{#if item.type === 'letter-sound'}
+																{item.stimulus}
+															{:else if item.type === 'word-read'}
+																{item.stimulus}
+															{:else if item.type === 'minimal-pair'}
+																{item.stimulus.join(' / ')}
+															{/if}
+														</h6>
+														<small class="text-muted">{item.prompt}</small>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4 text-end">
+												{#if item.mic}
+													<div class="d-flex align-items-center justify-content-end gap-2">
+														<svg width="24" height="24" fill="currentColor" class="text-danger" viewBox="0 0 16 16">
+															<path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V14h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-1.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+															<path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+														</svg>
+														<small class="text-muted">Voice recorded</small>
+													</div>
+												{/if}
+											</div>
+										</div>
+									</div>
+								</div>
+							{/each}
+						</div>
+
+						<!-- Assessment Info -->
+						<div class="mt-4 p-3 bg-light rounded">
+							<div class="row text-start">
+								<div class="col-md-6">
+									<small class="text-muted">
+										<strong>Pattern Focus:</strong> {activityPreviewData.pattern}
+									</small>
+								</div>
+								<div class="col-md-6">
+									<small class="text-muted">
+										<strong>Activity Type:</strong> {activityPreviewData.activityType}
+									</small>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

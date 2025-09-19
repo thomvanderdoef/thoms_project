@@ -1,0 +1,116 @@
+{
+  "assignmentId": "asg_2025_09_19_probe_v_sound",
+  "lesson": "Lesson 33: v /v/ \u2013 Alphabet",
+  "activityType": "Probe",
+  "metrics": {
+    "coreCount": 6,
+    "strategicCount": 2,
+    "intensiveCount": 0,
+    "avgAccuracyPct": 79
+  },
+  "students": [
+    {
+      "studentId": "stu_001",
+      "name": "Anderson, Emma",
+      "accuracyPct": 83,
+      "itemsCorrect": 10,
+      "itemsTotal": 12,
+      "wcpm": 53,
+      "risk": "Core",
+      "miscues": [
+        "short a\u2192long a (1x)",
+        "final /t/\u2192/d/ (1x)"
+      ],
+      "latencyMsAvg": 1350
+    },
+    {
+      "studentId": "stu_002",
+      "name": "Baker, Liam",
+      "accuracyPct": 83,
+      "itemsCorrect": 10,
+      "itemsTotal": 12,
+      "wcpm": 55,
+      "risk": "Core",
+      "miscues": [
+        "self-corrected /b/\u2192/v/"
+      ],
+      "latencyMsAvg": 1280
+    },
+    {
+      "studentId": "stu_003",
+      "name": "Clark, Sophia",
+      "accuracyPct": 83,
+      "itemsCorrect": 10,
+      "itemsTotal": 12,
+      "wcpm": 51,
+      "risk": "Core",
+      "miscues": [],
+      "latencyMsAvg": 1400
+    },
+    {
+      "studentId": "stu_004",
+      "name": "Davis, Noah",
+      "accuracyPct": 67,
+      "itemsCorrect": 8,
+      "itemsTotal": 12,
+      "wcpm": 47,
+      "risk": "Strategic",
+      "miscues": [
+        "/v/\u2192/b/ (3x)",
+        "omitted final sound (1x)"
+      ],
+      "latencyMsAvg": 1720
+    },
+    {
+      "studentId": "stu_005",
+      "name": "Evans, Olivia",
+      "accuracyPct": 83,
+      "itemsCorrect": 10,
+      "itemsTotal": 12,
+      "wcpm": 51,
+      "risk": "Core",
+      "miscues": [],
+      "latencyMsAvg": 1300
+    },
+    {
+      "studentId": "stu_006",
+      "name": "Fisher, Ethan",
+      "accuracyPct": 83,
+      "itemsCorrect": 10,
+      "itemsTotal": 12,
+      "wcpm": 48,
+      "risk": "Core",
+      "miscues": [
+        "slow rate"
+      ],
+      "latencyMsAvg": 1600
+    },
+    {
+      "studentId": "stu_007",
+      "name": "Garcia, Ava",
+      "accuracyPct": 67,
+      "itemsCorrect": 8,
+      "itemsTotal": 12,
+      "wcpm": 54,
+      "risk": "Strategic",
+      "miscues": [
+        "short a\u2192long a (2x)"
+      ],
+      "latencyMsAvg": 1680
+    },
+    {
+      "studentId": "stu_008",
+      "name": "Harris, Mason",
+      "accuracyPct": 83,
+      "itemsCorrect": 10,
+      "itemsTotal": 12,
+      "wcpm": 50,
+      "risk": "Core",
+      "miscues": [
+        "slow rate"
+      ],
+      "latencyMsAvg": 1580
+    }
+  ],
+  "generatedAt": "2025-09-19T14:50:05.622769Z"
+}

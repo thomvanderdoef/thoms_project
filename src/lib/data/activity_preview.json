@@ -1,0 +1,27 @@
+{
+  "activityType": "Probe",
+  "pattern": "v /v/",
+  "previewItems": [
+    {
+      "type": "letter-sound",
+      "stimulus": "v",
+      "prompt": "Say the sound.",
+      "mic": true
+    },
+    {
+      "type": "word-read",
+      "stimulus": "van",
+      "prompt": "Read the word.",
+      "mic": true
+    },
+    {
+      "type": "minimal-pair",
+      "stimulus": [
+        "vet",
+        "bet"
+      ],
+      "prompt": "Read both words.",
+      "mic": true
+    }
+  ]
+}

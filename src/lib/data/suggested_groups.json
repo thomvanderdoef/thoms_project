@@ -1,0 +1,30 @@
+[
+  {
+    "groupId": "grp_A",
+    "name": "Group A \u2014 v/b contrast",
+    "targetSkill": "Minimal pairs /v/ vs /b/",
+    "students": [
+      "Davis, Noah"
+    ],
+    "recommendedNext": "Assign Diagnostic (MPC) and Practice Deck"
+  },
+  {
+    "groupId": "grp_B",
+    "name": "Group B \u2014 short a review",
+    "targetSkill": "Short a CVC",
+    "students": [
+      "Garcia, Ava"
+    ],
+    "recommendedNext": "Practice Deck + Controlled Sentences"
+  },
+  {
+    "groupId": "grp_C",
+    "name": "Group C \u2014 Fluency sprint",
+    "targetSkill": "Rate/automaticity",
+    "students": [
+      "Fisher, Ethan",
+      "Harris, Mason"
+    ],
+    "recommendedNext": "ORF sprint (30\u201350w) + repeated read"
+  }
+]
