@@ -133,7 +133,7 @@
 					<button class="btn btn-outline-secondary me-2" on:click={() => window.print()}>
 						Print Report
 					</button>
-					<button class="btn btn-outline-secondary" on:click={() => window.close()}>
+					<button class="btn btn-outline-secondary" on:click={() => window.location.href = '/'}>
 						Close
 					</button>
 				</div>
