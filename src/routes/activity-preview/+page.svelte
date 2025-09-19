@@ -280,6 +280,20 @@
 								</div>
 							</div>
 						</div>
+
+						<!-- Try Student Activity Button -->
+						<div class="mt-4">
+							<button
+								class="btn btn-outline-primary"
+								on:click={() => window.open('/student-activity', '_blank')}
+							>
+								<i class="bi bi-play-circle me-2"></i>
+								Try Student Activity
+							</button>
+							<p class="text-muted mt-2 mb-0">
+								<small>Experience what students see during the {activityType.toLowerCase()}</small>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
