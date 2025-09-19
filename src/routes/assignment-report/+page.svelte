@@ -85,6 +85,45 @@
 		// Trigger reactivity
 		classResults = classResults;
 	}
+
+	// Flag logic to connect data points with suggested groups
+	function getStudentGroupFlags(studentName: string) {
+		// Find which group this student belongs to
+		const group = suggestedGroups.find(g => g.students.includes(studentName));
+		return group ? group.groupId : null;
+	}
+
+	function shouldFlagAccuracy(student: any) {
+		// Flag accuracy if student is in a group and accuracy is below threshold
+		return getStudentGroupFlags(student.name) && student.accuracyPct < 70;
+	}
+
+	function shouldFlagWCPM(student: any) {
+		// Flag WCPM for fluency group (Group C) students with slow rates
+		const groupId = getStudentGroupFlags(student.name);
+		return groupId === 'grp_C' && (student.wcpm < 50 || student.miscues.some(m => m.includes('slow rate')));
+	}
+
+	function shouldFlagMiscues(student: any, miscue: string) {
+		const groupId = getStudentGroupFlags(student.name);
+
+		// Group A (v/b contrast) - flag v/b confusion errors
+		if (groupId === 'grp_A' && miscue.includes('/v/→/b/')) {
+			return true;
+		}
+
+		// Group B (short a review) - flag short a errors
+		if (groupId === 'grp_B' && miscue.includes('short a→long a')) {
+			return true;
+		}
+
+		// Group C (fluency) - flag rate issues
+		if (groupId === 'grp_C' && miscue.includes('slow rate')) {
+			return true;
+		}
+
+		return false;
+	}
 </script>
 
 <svelte:head>
@@ -225,9 +264,19 @@
 											<td>
 												<strong>{student.name}</strong>
 											</td>
-											<td>{student.accuracyPct}%</td>
+											<td>
+												{student.accuracyPct}%
+												{#if shouldFlagAccuracy(student)}
+													<span class="ms-1">🚩</span>
+												{/if}
+											</td>
 											<td>{student.itemsCorrect}/{student.itemsTotal}</td>
-											<td>{student.wcpm}</td>
+											<td>
+												{student.wcpm}
+												{#if shouldFlagWCPM(student)}
+													<span class="ms-1">🚩</span>
+												{/if}
+											</td>
 											<td>
 												<span class="badge bg-{getRiskColor(student.risk)}">
 													{student.risk}
@@ -235,11 +284,16 @@
 											</td>
 											<td>
 												{#if student.miscues.length > 0}
-													<span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="{student.miscues.join('; ')}">
-														<small class="text-muted">
-															🔍 {student.miscues.length} error{student.miscues.length !== 1 ? 's' : ''}
-														</small>
-													</span>
+													<div class="d-flex flex-column gap-1">
+														{#each student.miscues as miscue}
+															<small class="text-muted d-flex align-items-center gap-1">
+																<span>{miscue}</span>
+																{#if shouldFlagMiscues(student, miscue)}
+																	<span>🚩</span>
+																{/if}
+															</small>
+														{/each}
+													</div>
 												{:else}
 													<small class="text-success">No errors</small>
 												{/if}
@@ -263,7 +317,7 @@
 						<div class="col-md-4">
 							<div class="card h-100">
 								<div class="card-body">
-									<h6 class="card-title text-primary">{group.name}</h6>
+									<h6 class="card-title text-primary">🚩 {group.name}</h6>
 									<p class="text-muted small mb-2">{group.targetSkill}</p>
 									<div class="mb-3">
 										<strong>Students:</strong>
