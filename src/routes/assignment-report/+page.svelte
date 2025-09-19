@@ -93,16 +93,6 @@
 		return group ? group.groupId : null;
 	}
 
-	function shouldFlagAccuracy(student: any) {
-		// Flag accuracy if student is in a group and accuracy is below threshold
-		return getStudentGroupFlags(student.name) && student.accuracyPct < 70;
-	}
-
-	function shouldFlagWCPM(student: any) {
-		// Flag WCPM for fluency group (Group C) students with slow rates
-		const groupId = getStudentGroupFlags(student.name);
-		return groupId === 'grp_C' && (student.wcpm < 50 || student.miscues.some(m => m.includes('slow rate')));
-	}
 
 	function shouldFlagMiscues(student: any, miscue: string) {
 		const groupId = getStudentGroupFlags(student.name);
@@ -264,19 +254,9 @@
 											<td>
 												<strong>{student.name}</strong>
 											</td>
-											<td>
-												{student.accuracyPct}%
-												{#if shouldFlagAccuracy(student)}
-													<span class="ms-1">🚩</span>
-												{/if}
-											</td>
+											<td>{student.accuracyPct}%</td>
 											<td>{student.itemsCorrect}/{student.itemsTotal}</td>
-											<td>
-												{student.wcpm}
-												{#if shouldFlagWCPM(student)}
-													<span class="ms-1">🚩</span>
-												{/if}
-											</td>
+											<td>{student.wcpm}</td>
 											<td>
 												<span class="badge bg-{getRiskColor(student.risk)}">
 													{student.risk}
