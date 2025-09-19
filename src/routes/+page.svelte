@@ -251,7 +251,7 @@
 <div class="container py-5">
 	<div class="row">
 		<div class="col-12 text-center mb-5">
-			<h1 class="display-4 text-primary">Science of Reading Activity Generator</h1>
+			<h1 class="display-4 text-primary">Science of Reading Teacher's Assistant</h1>
 			<p class="lead text-muted">Select a UFLI lesson to get started</p>
 		</div>
 	</div>
@@ -296,7 +296,7 @@
 									on:click={() => openActivityPreview('Probe')}
 								>
 									<h6 class="mb-1">Probe</h6>
-									<small>Simple explanation of when and why to assign this, based on selected lesson.</small>
+									<small>Quick progress check on previously taught skills to monitor learning between benchmarks</small>
 								</button>
 							</div>
 							<div class="col-md-6">
@@ -305,7 +305,7 @@
 									on:click={() => openActivityPreview('Diagnostic')}
 								>
 									<h6 class="mb-1">Diagnostic</h6>
-									<small>Simple explanation of when and why to assign this, based on selected lesson.</small>
+									<small>Deeper analysis to identify specific error patterns and intervention needs</small>
 								</button>
 							</div>
 							<div class="col-md-6">
@@ -314,7 +314,7 @@
 									on:click={() => openActivityPreview('Practice')}
 								>
 									<h6 class="mb-1">Practice</h6>
-									<small>Simple explanation of when and why to assign this, based on selected lesson.</small>
+									<small>Targeted skill practice based on identified learning gaps and miscue patterns</small>
 								</button>
 							</div>
 							<div class="col-md-6">
@@ -323,7 +323,7 @@
 									on:click={() => openActivityPreview('Extended Assignment')}
 								>
 									<h6 class="mb-1">Extended Assignment</h6>
-									<small>Simple explanation of when and why to assign this, based on selected lesson.</small>
+									<small>Multi-activity sequence for sustained practice and skill consolidation</small>
 								</button>
 							</div>
 						</div>
